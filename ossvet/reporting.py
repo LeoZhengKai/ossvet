@@ -13,7 +13,7 @@ from ossvet.models import Finding, ScanResult, Severity, Verdict
 _CATEGORY_SECTIONS: list[tuple[str, list[str]]] = [
     ("Provenance", [
         "single_contributor", "new_maintainer_account",
-        "star_velocity_spike", "stale_repo",
+        "star_velocity_spike", "stale_repo", "scorecard_low",
     ]),
     ("Vulnerabilities (CVE)", ["cve_critical", "cve_high"]),
     ("Secrets", ["verified_secret", "unverified_secret"]),

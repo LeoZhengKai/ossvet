@@ -15,8 +15,13 @@ from ossvet.scanners.base import BaseScanner, iter_text_files, read_text_safely
 
 # Identifier candidates: alphanumerics + underscore (Python/JS-ish).
 # We deliberately allow non-ASCII letters so we can detect Cyrillic
-# homoglyphs sitting inside what looks like a valid identifier.
-_IDENT_RE = re.compile(r"[\w]+", re.UNICODE)
+# homoglyphs sitting inside what looks like a valid identifier — and we
+# include zero-width characters as part of the run so that a token like
+# `pas<ZWSP>swd` is captured as ONE identifier instead of two.
+_IDENT_RE = re.compile(
+    r"[\w​‌‍⁠﻿]+",
+    re.UNICODE,
+)
 
 
 class UnicodeTrojanScanner(BaseScanner):

